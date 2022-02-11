@@ -1,7 +1,6 @@
 import { useState } from "react";
 import logo from "./logo.svg";
 import Form from "./components/Form";
-import "./App.css";
 
 function App() {
 	const [count, setCount] = useState(0);

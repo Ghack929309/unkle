@@ -1,7 +1,7 @@
 import React from "react";
 import { ImArrowDown } from "react-icons/im";
-
 import useHover from "../hooks/useHover";
+import Tooltip from "../hooks/Tooltip";
 //ImArrowDown
 const Form = () => {
 	const [hovered, ref] = useHover();
@@ -10,6 +10,7 @@ const Form = () => {
 			<h1 className="mb-6 text-center text-xl font-semibold tracking-wide text-[#2b9dfe]">
 				Remplissez votre contrat
 			</h1>
+
 			<div className="-mx-3 mb-6 flex flex-wrap">
 				<div className="mb-6 w-full px-3 md:mb-0 md:w-1/2">
 					<label
@@ -18,13 +19,14 @@ const Form = () => {
 					>
 						Nom
 					</label>
-					<input
-						className="mb-3 block w-full appearance-none rounded border bg-gray-200 py-3 px-4 leading-tight text-gray-700 focus:bg-white focus:outline-none"
-						id="grid-first-name"
-						type="text"
-						placeholder="Jane"
-					/>
-
+					<Tooltip text="Fill the form">
+						<input
+							className="mb-3 block w-full appearance-none rounded border bg-gray-200 py-3 px-4 leading-tight text-gray-700 focus:bg-white focus:outline-none"
+							id="grid-first-name"
+							type="text"
+							placeholder="Jane"
+						/>
+					</Tooltip>
 					<p className="text-xs italic text-red-500">
 						Please fill out this field.
 					</p>
