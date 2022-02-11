@@ -2,6 +2,7 @@ import React from "react";
 import { ImArrowDown } from "react-icons/im";
 import useHover from "../hooks/useHover";
 import Tooltip from "../hooks/Tooltip";
+
 //ImArrowDown
 const Form = () => {
 	const [hovered, ref] = useHover();
@@ -19,14 +20,14 @@ const Form = () => {
 					>
 						Nom
 					</label>
-					<Tooltip text="Fill the form">
-						<input
-							className="mb-3 block w-full appearance-none rounded border bg-gray-200 py-3 px-4 leading-tight text-gray-700 focus:bg-white focus:outline-none"
-							id="grid-first-name"
-							type="text"
-							placeholder="Jane"
-						/>
-					</Tooltip>
+
+					<input
+						className="mb-3 block w-full appearance-none rounded border bg-gray-200 py-3 px-4 leading-tight text-gray-700 focus:bg-white focus:outline-none"
+						id="grid-first-name"
+						type="text"
+						placeholder="Jane"
+					/>
+
 					<p className="text-xs italic text-red-500">
 						Please fill out this field.
 					</p>
@@ -123,12 +124,20 @@ const Form = () => {
 					/>
 				</div>
 				<div className="flex w-full flex-col items-center justify-center space-y-2  p-2">
-					<label ref={ref} htmlFor="check">
-						<div className="flex cursor-pointer items-center justify-center space-x-2">
-							<input type="checkbox" id="check" name="agree" />
-							<p className="text-[#ffa5c5]">Agree with terms and conditions</p>
-						</div>
-					</label>
+					<Tooltip
+						text="read carefully before checking off"
+						placement="right"
+						delay={0.02}
+					>
+						<label ref={ref} htmlFor="check">
+							<div className="flex cursor-pointer items-center justify-center space-x-2">
+								<input type="checkbox" id="check" name="agree" />
+								<p className="text-[#ffa5c5]">
+									Agree with terms and conditions
+								</p>
+							</div>
+						</label>
+					</Tooltip>
 					<button className="rounded-xl bg-[#2b9dfe] px-6 py-2 text-sm text-white">
 						Submit
 					</button>
