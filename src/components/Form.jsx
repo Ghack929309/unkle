@@ -1,5 +1,4 @@
 import React from "react";
-import { ImArrowDown } from "react-icons/im";
 import useHover from "../hooks/useHover";
 import Tooltip from "../hooks/Tooltip";
 
@@ -8,8 +7,8 @@ const Form = () => {
 	const [hovered, ref] = useHover();
 	return (
 		<div className="w-full max-w-lg">
-			<h1 className="mb-6 text-center text-xl font-semibold tracking-wide text-[#2b9dfe]">
-				Remplissez votre contrat
+			<h1 className="mb-6 text-center text-2xl font-semibold tracking-wide text-[#2b9dfe]">
+				Remplissez le contrat
 			</h1>
 
 			<div className="-mx-3 mb-6 flex flex-wrap">
@@ -22,15 +21,17 @@ const Form = () => {
 					</label>
 
 					<input
+						ref={ref}
 						className="mb-3 block w-full appearance-none rounded border bg-gray-200 py-3 px-4 leading-tight text-gray-700 focus:bg-white focus:outline-none"
 						id="grid-first-name"
 						type="text"
 						placeholder="Jane"
 					/>
-
-					<p className="text-xs italic text-red-500">
-						Please fill out this field.
-					</p>
+					{hovered && (
+						<p className="text-xs italic text-red-500">
+							Veuillez remplir ce champ.
+						</p>
+					)}
 				</div>
 				<div className="w-full px-3 md:w-1/2">
 					<label
@@ -55,6 +56,7 @@ const Form = () => {
 					>
 						Mot de passe
 					</label>
+
 					<input
 						className="mb-3 block w-full appearance-none rounded border border-gray-200 bg-gray-200 py-3 px-4 leading-tight text-gray-700 focus:border-gray-500 focus:bg-white focus:outline-none"
 						id="grid-password"
@@ -63,7 +65,7 @@ const Form = () => {
 					/>
 
 					<p className="text-xs italic text-gray-600">
-						Make it as long and as crazy as you'd like
+						Faites-le aussi long et aussi fou que vous le souhaitez.
 					</p>
 				</div>
 			</div>
@@ -75,12 +77,19 @@ const Form = () => {
 					>
 						Telephone
 					</label>
-					<input
-						className="block w-full appearance-none rounded border border-gray-200 bg-gray-200 py-3 px-4 leading-tight text-gray-700 focus:border-gray-500 focus:bg-white focus:outline-none"
-						id="grid-city"
-						type="number"
-						placeholder="Albuquerque"
-					/>
+					<Tooltip
+						text="Veuillez indiquer votre numero perso.
+						"
+						placement="top"
+						delay={0.02}
+					>
+						<input
+							className="block w-full appearance-none rounded border border-gray-200 bg-gray-200 py-3 px-4 leading-tight text-gray-700 focus:border-gray-500 focus:bg-white focus:outline-none"
+							id="grid-city"
+							type="number"
+							placeholder="916712..."
+						/>
+					</Tooltip>
 				</div>
 				<div className="mb-6 w-full px-3 md:mb-0 md:w-1/3">
 					<label
@@ -114,7 +123,7 @@ const Form = () => {
 						className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700"
 						htmlFor="grid-zip"
 					>
-						Zip
+						Code postal
 					</label>
 					<input
 						className="block w-full appearance-none rounded border border-gray-200 bg-gray-200 py-3 px-4 leading-tight text-gray-700 focus:border-gray-500 focus:bg-white focus:outline-none"
@@ -129,7 +138,7 @@ const Form = () => {
 						placement="right"
 						delay={0.02}
 					>
-						<label ref={ref} htmlFor="check">
+						<label htmlFor="check">
 							<div className="flex cursor-pointer items-center justify-center space-x-2">
 								<input type="checkbox" id="check" name="agree" />
 								<p className="text-[#ffa5c5]">

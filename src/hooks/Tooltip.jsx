@@ -111,6 +111,7 @@ const getPoint = (el, tt, placement, space) => {
 	})(placement);
 };
 
+//Tooltip component
 function Tooltip({
 	text,
 	placement = "bottom",
